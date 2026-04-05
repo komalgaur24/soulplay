@@ -6,53 +6,7 @@
 <title>SoulPlay — Login</title>
 <link rel="stylesheet" href="assets/css/style.css"/>
 <link rel="stylesheet" href="assets/css/auth.css"/>
-<!-- FIREBASE GOES RIGHT HERE 👇 -->
-<script type="module">
-// Import the functions you need from the SDKs you need
-import { initializeApp } from "firebase/app";
-// TODO: Add SDKs for Firebase products that you want to use
-// https://firebase.google.com/docs/web/setup#available-libraries
 
-// Your web app's Firebase configuration
-const firebaseConfig = {
-  apiKey: "AIzaSyA1ndley-5iyBqpfMe35a7AP_1JNlwBKsU",
-  authDomain: "soulplay-c80bf.firebaseapp.com",
-  projectId: "soulplay-c80bf",
-  storageBucket: "soulplay-c80bf.firebasestorage.app",
-  messagingSenderId: "74864509595",
-  appId: "1:74864509595:web:66037bee84c53d3aa5fc3e"
-};
-
-// Initialize Firebase
-const app = initializeApp(firebaseConfig);
-
-  window.handleLogin = async function() {
-    const email = document.getElementById('loginEmail').value;
-    const pass  = document.getElementById('loginPassword').value;
-    if (!email || !pass) {
-      showToast('Fill in all fields','error'); return;
-    }
-    try {
-      await signInWithEmailAndPassword(auth, email, pass);
-      window.location.href = 'app.html';
-    } catch(err) {
-      showToast(err.message, 'error');
-    }
-  };
-
-  window.handleGoogle = async function() {
-    try {
-      const result = await signInWithPopup(auth, provider);
-      const user = result.user;
-      localStorage.setItem('soulplay_user',
-        JSON.stringify({ name: user.displayName,
-                         email: user.email }));
-      window.location.href = 'app.html';
-    } catch(err) {
-      showToast(err.message,'error');
-    }
-  };
-</script>
 </head>
 <body class="auth-body">
 
