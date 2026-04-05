@@ -1,0 +1,298 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8"/>
+<meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+<title>SoulPlay — Type Your Soul. Play Your Story.</title>
+<link rel="stylesheet" href="assets/css/style.css"/>
+</head>
+<body>
+
+  <!-- NAVBAR -->
+  <nav class="navbar">
+    <a href="index.html" class="logo">
+      <span class="logo-soul">Soul</span><span class="logo-play">Play</span>
+    </a>
+    <div class="nav-links" id="navLinks">
+      <a href="#features">Features</a>
+      <a href="#skins">Guitars</a>
+      <a href="login.html">Login</a>
+      <a href="signup.html" class="btn-cta">Get Started</a>
+    </div>
+    <div class="hamburger" onclick="toggleMenu()">
+      <span></span><span></span><span></span>
+    </div>
+  </nav>
+
+  <!-- HERO -->
+  <section class="hero">
+    <div class="hero-ambient"></div>
+    <div class="hero-grid"></div>
+    <div class="hero-content">
+
+      <div class="hero-left">
+        <div class="hero-badge">
+          <span class="badge-dot"></span>
+          Fender Stratocaster · Web Audio Engine
+        </div>
+        <h1 class="hero-title">
+          <span class="ht-line">Type Your</span>
+          <span class="ht-accent">Soul.</span>
+          <span class="ht-line ht-small">Play Your Story.</span>
+        </h1>
+        <p class="hero-sub">
+          A browser-based guitar experience where every 
+          keystroke becomes a note. Write lyrics. 
+          Feel the strings come alive.
+        </p>
+        <div class="hero-actions">
+          <a href="signup.html" class="btn-primary">
+            <span>Start Playing</span>
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" 
+                 stroke="currentColor" stroke-width="2">
+              <path d="M5 12h14M12 5l7 7-7 7"/>
+            </svg>
+          </a>
+          <a href="#features" class="btn-ghost">See How It Works</a>
+        </div>
+        <div class="hero-meta">
+          <div class="meta-item">
+            <div class="meta-val">3</div>
+            <div class="meta-key">Guitar Skins</div>
+          </div>
+          <div class="meta-sep"></div>
+          <div class="meta-item">
+            <div class="meta-val">6</div>
+            <div class="meta-key">Patterns</div>
+          </div>
+          <div class="meta-sep"></div>
+          <div class="meta-item">
+            <div class="meta-val">∞</div>
+            <div class="meta-key">Lyrics</div>
+          </div>
+        </div>
+      </div>
+
+      <div class="hero-right">
+        <div class="guitar-scene">
+          <div class="gscene-ring gscene-ring--1"></div>
+          <div class="gscene-ring gscene-ring--2"></div>
+          <div class="gscene-ring gscene-ring--3"></div>
+          <div class="gscene-light"></div>
+          <img src="assets/images/guitar-sunburst.png" 
+               alt="Fender Stratocaster" class="hero-guitar"/>
+          <div class="gscene-floor"></div>
+        </div>
+      </div>
+
+    </div>
+
+    <!-- Keyboard keys floating -->
+    <div class="key-float kf-1"><kbd>A</kbd></div>
+    <div class="key-float kf-2"><kbd>♪</kbd></div>
+    <div class="key-float kf-3"><kbd>G</kbd></div>
+    <div class="key-float kf-4"><kbd>D</kbd></div>
+    <div class="key-float kf-5"><kbd>♫</kbd></div>
+  </section>
+
+  <!-- TICKER -->
+  <div class="ticker">
+    <div class="ticker-track">
+      <span>Type to Play</span><span class="tick-dot">◆</span>
+      <span>Fender Stratocaster</span><span class="tick-dot">◆</span>
+      <span>Web Audio API</span><span class="tick-dot">◆</span>
+      <span>Sunburst</span><span class="tick-dot">◆</span>
+      <span>Arctic White</span><span class="tick-dot">◆</span>
+      <span>Ebony Black</span><span class="tick-dot">◆</span>
+      <span>Blues Shuffle</span><span class="tick-dot">◆</span>
+      <span>Arpeggio Mode</span><span class="tick-dot">◆</span>
+      <span>Save Sessions</span><span class="tick-dot">◆</span>
+      <span>Type to Play</span><span class="tick-dot">◆</span>
+      <span>Fender Stratocaster</span><span class="tick-dot">◆</span>
+      <span>Web Audio API</span><span class="tick-dot">◆</span>
+      <span>Sunburst</span><span class="tick-dot">◆</span>
+      <span>Arctic White</span><span class="tick-dot">◆</span>
+      <span>Ebony Black</span><span class="tick-dot">◆</span>
+      <span>Blues Shuffle</span><span class="tick-dot">◆</span>
+      <span>Arpeggio Mode</span><span class="tick-dot">◆</span>
+      <span>Save Sessions</span><span class="tick-dot">◆</span>
+    </div>
+  </div>
+
+  <!-- FEATURES -->
+  <section class="features" id="features">
+    <div class="container">
+      <div class="sec-head">
+        <p class="sec-label">What is SoulPlay</p>
+        <h2 class="sec-title">Where Lyrics<br/>Meet Strings</h2>
+        <p class="sec-sub">Three simple ideas. One unforgettable experience.</p>
+      </div>
+      <div class="feat-grid">
+
+        <div class="feat-card">
+          <div class="feat-top">
+            <div class="feat-num">01</div>
+            <div class="feat-ico">
+              <svg width="28" height="28" viewBox="0 0 24 24" fill="none" 
+                   stroke="currentColor" stroke-width="1.5">
+                <rect x="2" y="3" width="20" height="14" rx="2"/>
+                <path d="M8 21h8M12 17v4"/>
+              </svg>
+            </div>
+          </div>
+          <h3>Type to Play</h3>
+          <p>Every keystroke triggers a real guitar note in your chosen rhythm pattern. Space bar strums. Enter resolves the phrase.</p>
+          <div class="feat-bar"></div>
+        </div>
+
+        <div class="feat-card feat-card--glow">
+          <div class="feat-top">
+            <div class="feat-num">02</div>
+            <div class="feat-ico">
+              <svg width="28" height="28" viewBox="0 0 24 24" fill="none" 
+                   stroke="currentColor" stroke-width="1.5">
+                <path d="M9 18V5l12-2v13"/>
+                <circle cx="6" cy="18" r="3"/>
+                <circle cx="18" cy="16" r="3"/>
+              </svg>
+            </div>
+          </div>
+          <h3>3 Guitar Skins</h3>
+          <p>Sunburst, Arctic White, Ebony Black — each skin changes the tone, colour palette and entire visual identity of the app.</p>
+          <div class="feat-bar"></div>
+        </div>
+
+        <div class="feat-card">
+          <div class="feat-top">
+            <div class="feat-num">03</div>
+            <div class="feat-ico">
+              <svg width="28" height="28" viewBox="0 0 24 24" fill="none" 
+                   stroke="currentColor" stroke-width="1.5">
+                <path d="M19 21H5a2 2 0 01-2-2V5a2 2 0 012-2h11l5 5v11a2 2 0 01-2 2z"/>
+                <polyline points="17,21 17,13 7,13 7,21"/>
+                <polyline points="7,3 7,8 15,8"/>
+              </svg>
+            </div>
+          </div>
+          <h3>Save Sessions</h3>
+          <p>Login to save your lyrics, chord settings and replay your best musical moments. Your stories, stored forever.</p>
+          <div class="feat-bar"></div>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- GUITARS -->
+  <section class="guitars" id="skins">
+    <div class="container">
+      <div class="sec-head">
+        <p class="sec-label">Choose Your Guitar</p>
+        <h2 class="sec-title">Pick Your Sound</h2>
+        <p class="sec-sub">Each guitar is a different world. Same soul.</p>
+      </div>
+      <div class="guitars-grid">
+
+        <div class="g-card" data-accent="gold">
+          <div class="g-glow"></div>
+          <div class="g-img-wrap">
+            <img src="assets/images/guitar-sunburst.png" alt="Sunburst"/>
+          </div>
+          <div class="g-body">
+            <div class="g-tag">Sunburst</div>
+            <p>Warm amber tones. Classic clean sound. The one that started it all.</p>
+            <div class="g-spec">
+              <span>● Clean Tone</span>
+              <span>● Gold Palette</span>
+            </div>
+          </div>
+        </div>
+
+        <div class="g-card g-card--hero" data-accent="purple">
+          <div class="g-badge">Most Popular</div>
+          <div class="g-glow"></div>
+          <div class="g-img-wrap">
+            <img src="assets/images/guitar-arctic.png" alt="Arctic White"/>
+          </div>
+          <div class="g-body">
+            <div class="g-tag">Arctic White</div>
+            <p>Crisp electric tone. Ice cold aesthetic. Built for the midnight sessions.</p>
+            <div class="g-spec">
+              <span>● Bright Tone</span>
+              <span>● Purple Palette</span>
+            </div>
+          </div>
+        </div>
+
+        <div class="g-card" data-accent="mint">
+          <div class="g-glow"></div>
+          <div class="g-img-wrap">
+            <img src="assets/images/guitar-ebony.png" alt="Ebony Black"/>
+          </div>
+          <div class="g-body">
+            <div class="g-tag">Ebony Black</div>
+            <p>Raw crunch and blues. Dark and aggressive. For the ones who feel it deep.</p>
+            <div class="g-spec">
+              <span>● Crunch Tone</span>
+              <span>● Mint Palette</span>
+            </div>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- CTA -->
+  <section class="cta-sec">
+    <div class="cta-ambient"></div>
+    <div class="container">
+      <p class="sec-label">Ready?</p>
+      <h2 class="cta-title">
+        Your lyrics are waiting<br/>
+        <span>for their strings.</span>
+      </h2>
+      <a href="signup.html" class="btn-primary btn-lg">
+        <span>Start Playing Free</span>
+        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" 
+             stroke="currentColor" stroke-width="2">
+          <path d="M5 12h14M12 5l7 7-7 7"/>
+        </svg>
+      </a>
+    </div>
+  </section>
+
+  <!-- FOOTER -->
+  <footer class="footer">
+    <div class="container">
+      <div class="footer-top">
+        <div>
+          <div class="footer-logo">
+            <span>Soul</span><span>Play</span>
+          </div>
+          <p class="footer-tag">Type your soul. Play your story.</p>
+        </div>
+        <div class="footer-nav">
+          <a href="#features">Features</a>
+          <a href="#skins">Guitars</a>
+          <a href="login.html">Login</a>
+          <a href="signup.html">Sign Up</a>
+          <a href="https://github.com/komalgaur24/soulplay" target="_blank">
+            GitHub ↗
+          </a>
+        </div>
+      </div>
+      <div class="footer-bottom">
+        <p>© 2025 SoulPlay · Built with passion & Web Audio API</p>
+      </div>
+    </div>
+  </footer>
+
+<script>
+function toggleMenu(){
+  document.getElementById('navLinks').classList.toggle('open');
+}
+</script>
+<script src="assets/js/app.js"></script>
+</body>
+</html>

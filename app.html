@@ -1,0 +1,196 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8"/>
+<meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+<title>SoulPlay — Play</title>
+<link rel="stylesheet" href="assets/css/style.css"/>
+<link rel="stylesheet" href="assets/css/app.css"/>
+</head>
+<body class="app-body">
+
+  <!-- TOP BAR -->
+  <header class="app-header">
+    <a href="index.html" class="logo">
+      <span class="logo-soul">Soul</span><span class="logo-play">Play</span>
+    </a>
+    <div class="skin-switcher">
+      <button class="skin-btn active" data-skin="sunburst" 
+              onclick="setSkin('sunburst',this)" title="Sunburst">
+        <span class="skin-dot" style="background:#FBBF24"></span>
+      </button>
+      <button class="skin-btn" data-skin="arctic" 
+              onclick="setSkin('arctic',this)" title="Arctic White">
+        <span class="skin-dot" style="background:#C084FC"></span>
+      </button>
+      <button class="skin-btn" data-skin="ebony" 
+              onclick="setSkin('ebony',this)" title="Ebony Black">
+        <span class="skin-dot" style="background:#34D399"></span>
+      </button>
+    </div>
+    <div class="app-header-right">
+      <div class="chord-badge" id="chordBadge">—</div>
+      <div class="user-avatar" onclick="toggleUserMenu()">
+        <span id="userInitial">?</span>
+        <div class="user-menu" id="userMenu">
+          <a href="#">My Sessions</a>
+          <a href="#">Settings</a>
+          <a href="index.html">Home</a>
+          <a href="login.html" class="um-logout">Sign Out</a>
+        </div>
+      </div>
+    </div>
+  </header>
+
+  <!-- MAIN LAYOUT -->
+  <main class="app-main">
+
+    <!-- LEFT: GUITAR -->
+    <aside class="app-guitar-panel" id="guitarPanel">
+      <div class="guitar-scene">
+        <div class="gs-ambient"></div>
+        <div class="gs-ring gs-ring--1"></div>
+        <div class="gs-ring gs-ring--2"></div>
+        <img src="assets/images/guitar-sunburst.png" 
+             alt="Guitar" class="app-guitar" id="appGuitar"/>
+        <div class="gs-floor"></div>
+      </div>
+      <div class="string-viz" id="stringViz">
+        <div class="sv-line" id="sv0"></div>
+        <div class="sv-line" id="sv1"></div>
+        <div class="sv-line" id="sv2"></div>
+        <div class="sv-line" id="sv3"></div>
+        <div class="sv-line" id="sv4"></div>
+        <div class="sv-line" id="sv5"></div>
+      </div>
+    </aside>
+
+    <!-- CENTER: LYRICS -->
+    <section class="app-center">
+      <div class="lyrics-stage">
+        <div class="ls-top">
+          <span class="ls-label">Your Lyrics</span>
+          <div class="ls-actions">
+            <button class="ls-btn" onclick="clearLyrics()" 
+                    title="Clear">✕ Clear</button>
+            <button class="ls-btn" onclick="saveLyrics()" 
+                    title="Save">↓ Save</button>
+          </div>
+        </div>
+        <div class="lyrics-display" id="lyricsDisplay">
+          <span class="ld-placeholder">
+            Start typing your lyrics...<br/>
+            <small>every key plays a note ♪</small>
+          </span>
+        </div>
+        <textarea 
+          class="lyrics-input" 
+          id="lyricsInput"
+          placeholder="Type here... every keystroke plays guitar ✦"
+          spellcheck="false"
+        ></textarea>
+        <div class="ls-hints">
+          <span><kbd>SPACE</kbd> Strum chord</span>
+          <span><kbd>ENTER</kbd> Resolve phrase</span>
+          <span><kbd>BACKSPACE</kbd> Mute</span>
+        </div>
+      </div>
+
+      <!-- VU METER -->
+      <div class="vu-meter" id="vuMeter"></div>
+    </section>
+
+    <!-- RIGHT: CONTROLS -->
+    <aside class="app-controls">
+
+      <div class="ctrl-section">
+        <div class="ctrl-label">Key</div>
+        <div class="ctrl-grid">
+          <button class="ctrl-btn active" 
+                  onclick="setKey('G',this)">G</button>
+          <button class="ctrl-btn" 
+                  onclick="setKey('D',this)">D</button>
+          <button class="ctrl-btn" 
+                  onclick="setKey('A',this)">A</button>
+          <button class="ctrl-btn" 
+                  onclick="setKey('E',this)">E</button>
+          <button class="ctrl-btn" 
+                  onclick="setKey('C',this)">C</button>
+          <button class="ctrl-btn" 
+                  onclick="setKey('Am',this)">Am</button>
+        </div>
+      </div>
+
+      <div class="ctrl-section">
+        <div class="ctrl-label">Pattern</div>
+        <div class="ctrl-stack">
+          <button class="ctrl-btn-lg active" 
+                  onclick="setPattern('strum',this)">
+            <span class="cbtn-icon">≋</span> Strum
+          </button>
+          <button class="ctrl-btn-lg" 
+                  onclick="setPattern('pick',this)">
+            <span class="cbtn-icon">↓</span> Pick
+          </button>
+          <button class="ctrl-btn-lg" 
+                  onclick="setPattern('arpeggio',this)">
+            <span class="cbtn-icon">∿</span> Arpeggio
+          </button>
+          <button class="ctrl-btn-lg" 
+                  onclick="setPattern('blues',this)">
+            <span class="cbtn-icon">♭</span> Blues
+          </button>
+        </div>
+      </div>
+
+      <div class="ctrl-section">
+        <div class="ctrl-label">Tone</div>
+        <div class="ctrl-stack">
+          <button class="ctrl-btn-lg active" 
+                  onclick="setTone('clean',this)">
+            <span class="cbtn-icon">○</span> Clean
+          </button>
+          <button class="ctrl-btn-lg" 
+                  onclick="setTone('crunch',this)">
+            <span class="cbtn-icon">◈</span> Crunch
+          </button>
+          <button class="ctrl-btn-lg" 
+                  onclick="setTone('blues',this)">
+            <span class="cbtn-icon">◉</span> Blues
+          </button>
+        </div>
+      </div>
+
+      <div class="ctrl-section">
+        <div class="ctrl-label">
+          BPM <span id="bpmVal">90</span>
+        </div>
+        <input type="range" class="bpm-slider" 
+               id="bpmSlider" min="40" max="200" value="90"
+               oninput="setBPM(this.value)"/>
+        <div class="bpm-labels">
+          <span>Slow</span><span>Fast</span>
+        </div>
+      </div>
+
+      <div class="ctrl-section">
+        <div class="ctrl-label">Volume</div>
+        <input type="range" class="bpm-slider" 
+               id="volSlider" min="0" max="100" value="70"
+               oninput="setVolume(this.value)"/>
+      </div>
+
+      <div class="ctrl-section">
+        <button class="btn-play-demo" onclick="playDemo()">
+          ▶ Play Demo Riff
+        </button>
+      </div>
+
+    </aside>
+
+  </main>
+
+<script src="assets/js/audio.js"></script>
+<script src="assets/js/app.js"></script>
+</body>
+</html>
