@@ -153,5 +153,82 @@
 
   </div>
 
+<script src="https://www.gstatic.com/firebasejs/10.7.0/firebase-app-compat.js"></script>
+<script src="https://www.gstatic.com/firebasejs/10.7.0/firebase-auth-compat.js"></script>
+<script>
+const firebaseConfig = {
+  apiKey: "AIzaSyA1ndley-5iyBqpfMe35a7AP_1JNlwBKsU",
+  authDomain: "soulplay-c80bf.firebaseapp.com",
+  projectId: "soulplay-c80bf",
+  storageBucket: "soulplay-c80bf.firebasestorage.app",
+  messagingSenderId: "74864509595",
+  appId: "1:74864509595:web:182729e3b64a22c0a5fc3e"
+};
+
+  firebase.initializeApp(firebaseConfig);
+  const auth     = firebase.auth();
+  const provider = new firebase.auth.GoogleAuthProvider();
+
+  function handleSignup() {
+    const firstName = document.getElementById('firstName').value.trim();
+    const lastName  = document.getElementById('lastName').value.trim();
+    const email     = document.getElementById('signupEmail').value.trim();
+    const pass      = document.getElementById('signupPassword').value;
+    const confirm   = document.getElementById('confirmPassword').value;
+    const agreed    = document.getElementById('agreeTerms').checked;
+
+    if (!firstName || !lastName || !email || !pass || !confirm) {
+      showToast('Please fill in all fields', 'error'); return;
+    }
+    if (!isValidEmail(email)) {
+      showToast('Invalid email address', 'error'); return;
+    }
+    if (pass.length < 8) {
+      showToast('Password min 8 characters', 'error'); return;
+    }
+    if (pass !== confirm) {
+      showToast('Passwords do not match', 'error'); return;
+    }
+    if (!agreed) {
+      showToast('Please agree to Terms', 'error'); return;
+    }
+
+    showToast('Creating account...', 'info');
+
+    auth.createUserWithEmailAndPassword(email, pass)
+      .then(cred => {
+        localStorage.setItem('soulplay_user', JSON.stringify({
+          name:  firstName,
+          email: cred.user.email
+        }));
+        showToast('Account created! 🎸', 'success');
+        setTimeout(() => {
+          window.location.href = 'app.html';
+        }, 1200);
+      })
+      .catch(err => {
+        showToast(err.message, 'error');
+      });
+  }
+
+  function handleGoogle() {
+    auth.signInWithPopup(provider)
+      .then(result => {
+        const user = result.user;
+        localStorage.setItem('soulplay_user', JSON.stringify({
+          name:  user.displayName,
+          email: user.email
+        }));
+        showToast('Welcome ' + user.displayName + '!', 'success');
+        setTimeout(() => {
+          window.location.href = 'app.html';
+        }, 1200);
+      })
+      .catch(err => {
+        showToast(err.message, 'error');
+      });
+  }
+</script>
+<script src="assets/js/auth.js"></script>
 </body>
 </html>
